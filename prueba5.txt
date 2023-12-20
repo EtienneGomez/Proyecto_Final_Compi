@@ -1,0 +1,3 @@
+for(var vari=0; ;){
+    print vari;
+}
