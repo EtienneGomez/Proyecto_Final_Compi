@@ -48,15 +48,15 @@ public class Interprete {
         Scanner scanner = new Scanner(source);
         List<Token> tokens = scanner.scanTokens();
 
-//        for(Token token : tokens){
-//        System.out.println(token);
-//        }
+        for(Token token : tokens){
+        System.out.println(token);
+      }
 
         try {
             Parser parser = new Parser(tokens);
             parser.parse();
             if (parser.esValida) {
-//                System.out.print("\n>>>Cadena valida<<<\n\n");
+              System.out.print("\n>>>Cadena valida<<<\n\n");
                 GeneradorPostfija gpf = new GeneradorPostfija(tokens);
                 List<Token> postfija = gpf.convertir();
                 for(Token token : postfija){

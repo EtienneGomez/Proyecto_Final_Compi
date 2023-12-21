@@ -146,6 +146,11 @@ public class Parser {
 
     // ! DECLARATION
     private void Declaration() {
+        // Verificar si el token actual es EOF y salir si es así
+        if (comparar(TipoToken.EOF)) {
+            return;
+        }
+
         if (comparar(TipoToken.FUN)) {
             FunDeclaration();
         } else if (comparar(TipoToken.VAR)) {
@@ -155,6 +160,7 @@ public class Parser {
             Declaration();
         }
     }
+
 
     // ! FUN_DECLARATION
     private void FunDeclaration() {
@@ -186,6 +192,8 @@ public class Parser {
             ForStmt();
         } else if (comparar(TipoToken.IF)) {
             IfStmt();
+        } else if (comparar(TipoToken.PRINT)) {
+            PrintStmt();
         } else if (comparar(TipoToken.WHILE)) {
             WhileStmt();
         } else if (comparar(TipoToken.RETURN)) {
@@ -196,6 +204,7 @@ public class Parser {
             error();
         }
     }
+
 
     // ! EXPR_STMT
     private void ExprStmt() {
